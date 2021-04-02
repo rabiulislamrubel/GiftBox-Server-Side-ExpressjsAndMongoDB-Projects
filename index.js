@@ -8,7 +8,7 @@ const ObjectId = require('mongodb').ObjectID;
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-const pass = ' ';
+const port = 8080;
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.mldqx.mongodb.net/${process.env.DB_DataBaseName}?retryWrites=true&w=majority`;
 
@@ -59,4 +59,4 @@ client.connect(err => {
 
 });
 
-app.listen(8080, () => console.log('The port number is 8080'))
+app.listen(process.env.PORT || port)
